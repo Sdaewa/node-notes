@@ -1,0 +1,22 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdaewa/node-notes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdaewa/node-notes/issues"
+  },
+  "homepage": "https://github.com/sdaewa/node-notes#readme",
+  "dependencies": {
+    "validator": "^13.1.17"
+  }
+}
