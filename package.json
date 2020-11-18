@@ -18,6 +18,7 @@
   "homepage": "https://github.com/sdaewa/node-notes#readme",
   "dependencies": {
     "chalk": "^4.1.0",
-    "validator": "^13.1.17"
+    "validator": "^13.1.17",
+    "yargs": "^16.1.1"
   }
 }
