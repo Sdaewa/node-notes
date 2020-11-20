@@ -8,6 +8,7 @@ function getNotes() {
 }
 
 
+// add
 const addNote = function (title, body) {
     const notes = loadNotes();
     const duplicateNotes = notes.filter((note) => {
@@ -27,6 +28,7 @@ const addNote = function (title, body) {
 }
 
 
+// load
 const loadNotes = function () {
     try {
         const dataBuffer = fs.readFileSync('notes.json');
@@ -38,6 +40,7 @@ const loadNotes = function () {
 }
 
 
+// save
 const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJSON);
