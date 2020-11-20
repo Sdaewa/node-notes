@@ -1,18 +1,1 @@
-[
-    {
-        "title": "Sample1",
-        "body": "Sample body1"
-    },
-    {
-        "title": "Sample2",
-        "body": "Sample body2"
-    },
-    {
-        "title": "Sample2",
-        "body": "Sample body2"
-    },
-    {
-        "title": "Sample2",
-        "body": "Sample body2"
-    }
-]
+[{"title":"Sample1","body":"Sample body1"},{"title":"Sample2","body":"Sample body2"},{"title":"Sample2","body":"Sample body2"},{"title":"Sample2","body":"Sample body2"}]
