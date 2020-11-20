@@ -1,5 +1,6 @@
 const fs = require('fs');
-// let note = 'note';
+const chalk = require('chalk');
+let note = 'note';
 
 
 
@@ -46,7 +47,27 @@ const saveNotes = function (notes) {
     fs.writeFileSync('notes.json', dataJSON);
 }
 
+
+// delete
+const deleteNote = function (title) {
+    let notes = loadNotes();
+    const newNote = notes.filter((note) => {
+        return note.title !== title;
+    });
+    if (notes.length !== 0) {
+        notes = newNote;
+        console.log(chalk.green('Deleted'));
+        saveNotes(notes);
+    } else if (notes.length === 0) {
+        return console.log(chalk.red('Empty list'));
+    } else if (notes.length !== 0 && notes.includes(title)) {
+        console.log(chalk.blueBright('Sorry not here'));
+    }
+
+}
+
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    deleteNote: deleteNote
 };
