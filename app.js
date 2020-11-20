@@ -5,7 +5,10 @@ const yargs = require('yargs');
 
 // fs.writeFileSync('note.txt', 'note');
 
+
+
 yargs.version('1.1.0');
+
 
 yargs.command({
     command: 'add',
@@ -27,13 +30,22 @@ yargs.command({
     }
 });
 
+
 yargs.command({
     command: 'remove',
     describe: 'Remove note',
+    builder: {
+        title: {
+            describe: 'Note Title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
     handler: function () {
         console.log('Removing note');
     }
 });
+
 
 yargs.command({
     command: 'read',
@@ -43,6 +55,7 @@ yargs.command({
     }
 });
 
+
 yargs.command({
     command: 'list',
     describe: 'List notes',
@@ -50,6 +63,8 @@ yargs.command({
         console.log('notes');
     }
 });
+
+
 
 yargs.parse();
 
