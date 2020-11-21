@@ -1,6 +1,5 @@
 const notes = require('./notes');
 const fs = require('fs');
-const chalk = require('chalk');
 const yargs = require('yargs');
 
 // fs.writeFileSync('note.txt', 'note');
