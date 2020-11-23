@@ -63,6 +63,7 @@ const deleteNote = function (title) {
     } else if (notes.length !== 0 && notes.includes(title)) {
         console.log(chalk.blueBright('Sorry not here'));
     }
+
 }
 
 module.exports = {
