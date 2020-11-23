@@ -1,6 +1,9 @@
 const fs = require('fs');
 const chalk = require('chalk');
-let note = 'note';
+const {
+    title
+} = require('process');
+
 
 
 // list
@@ -12,7 +15,8 @@ function listNotes() {
             console.log(chalk.underline(note.title));
         });
     } else {
-        console.log(chalk.yellow.inverse('Empty'));
+        console.log(chalk.magenta.inverse('NOTES'));
+        console.log(chalk.yellow('Empty'));
     }
 }
 
@@ -25,11 +29,10 @@ function getNotes() {
 // add
 const addNote = (title, body) => {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(note => {
-        return note.title === title;
-    });
-
-    if (duplicateNotes.length === 0) {
+    const duplicateNote = notes.find((note) => {
+        note.title === title;
+    })
+    if (!duplicateNote) {
         notes.push({
             title: title,
             body: body
@@ -76,9 +79,29 @@ const deleteNote = (title) => {
     }
 }
 
+
+// read
+const readNote = (title) => {
+    const notes = loadNotes();
+    console.log(chalk.yellow.inverse(title));
+    if (notes.length > 0) {
+        notes.filter((note) => {
+            if (note.title === title) {
+                console.log(chalk.white.underline(note.body));
+            }
+            if (note.title !== title) {
+                console.log(chalk.red.inverse('NOT A MATCH'));
+            }
+        });
+    } else {
+        console.log(chalk.yellow.inverse('Nothing to read'));
+    };
+}
+
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
     listNotes: listNotes,
-    deleteNote: deleteNote
+    deleteNote: deleteNote,
+    readNote: readNote
 };
