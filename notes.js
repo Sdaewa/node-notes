@@ -89,7 +89,7 @@ const readNote = (title) => {
         console.log(chalk.yellow.inverse(title));
         console.log(chalk.white(note.body));
     } else {
-        console.log(chalk.red.inverse('No match'));
+        console.log(chalk.red('No match'));
     }
 }
 
