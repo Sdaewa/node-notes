@@ -83,19 +83,14 @@ const deleteNote = (title) => {
 // read
 const readNote = (title) => {
     const notes = loadNotes();
-    console.log(chalk.yellow.inverse(title));
-    if (notes.length > 0) {
-        notes.filter((note) => {
-            if (note.title === title) {
-                console.log(chalk.white.underline(note.body));
-            }
-            if (note.title !== title) {
-                console.log(chalk.red.inverse('NOT A MATCH'));
-            }
-        });
+    const note = notes.find(note => note.title === title);
+
+    if (note) {
+        console.log(chalk.yellow.inverse(title));
+        console.log(chalk.white(note.body));
     } else {
-        console.log(chalk.yellow.inverse('Nothing to read'));
-    };
+        console.log(chalk.red.inverse('No match'));
+    }
 }
 
 module.exports = {
