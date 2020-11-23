@@ -24,7 +24,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function (argv) {
+    handler(argv) {
         notes.addNote(argv.title, argv.body);
     }
 });
@@ -40,7 +40,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function (argv) {
+    handler(argv) {
         notes.deleteNote(argv.title);
     }
 });
@@ -49,7 +49,7 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Print note',
-    handler: function () {
+    handler() {
         console.log('note');
     }
 });
@@ -58,7 +58,7 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'List notes',
-    handler: function () {
+    handler() {
         console.log('notes');
     }
 });
@@ -66,15 +66,3 @@ yargs.command({
 
 
 yargs.parse();
-
-// const dataBuffer = fs.readFileSync('1-json.json');
-// const dataJSON = dataBuffer.toString();
-// const data = JSON.parse(dataJSON);
-// data.name = 'Luis';
-// data.age = '29';
-// data.planet = 'Mars';
-
-// const newDataJSON = JSON.stringify(data);
-// const log = fs.writeFileSync('1-json.json', newDataJSON);
-
-// console.log(log);
