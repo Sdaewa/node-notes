@@ -22,9 +22,9 @@ const addNote = function (title, body) {
             body: body
         });
         saveNotes(notes);
-        console.log('Saved');
+        console.log(chalk.green.inverse('Saved'));
     } else {
-        console.log('Duplicate');
+        console.log(chalk.orange.inverse('Duplicate'));
     };
 }
 
