@@ -51,17 +51,17 @@ const saveNotes = function (notes) {
 // delete
 const deleteNote = function (title) {
     let notes = loadNotes();
-    const newNote = notes.filter((note) => {
+    const notesToKeep = notes.filter((note) => {
         return note.title !== title;
     });
-    if (notes.length !== 0) {
-        notes = newNote;
+    if (notes.length > notesToKeep.length) {
+        notes = notesToKeep;
         console.log(chalk.green('Deleted'));
         saveNotes(notes);
+    } else if (notes.length === notesToKeep.length) {
+        return console.log(chalk.red('Nothing happened'));
     } else if (notes.length === 0) {
-        return console.log(chalk.red('Empty list'));
-    } else if (notes.length !== 0 && notes.includes(title)) {
-        console.log(chalk.blueBright('Sorry not here'));
+        console.log(chalk.orange('Empty'));
     }
 
 }
