@@ -56,14 +56,13 @@ const deleteNote = function (title) {
     });
     if (notes.length > notesToKeep.length) {
         notes = notesToKeep;
-        console.log(chalk.green('Deleted'));
+        console.log(chalk.green.inverse('Deleted'));
         saveNotes(notes);
     } else if (notes.length === notesToKeep.length) {
-        return console.log(chalk.red('Nothing happened'));
+        return console.log(chalk.red.inverse('Nothing happened'));
     } else if (notes.length === 0) {
-        console.log(chalk.orange('Empty'));
+        console.log(chalk.orange.inverse('Empty'));
     }
-
 }
 
 module.exports = {
