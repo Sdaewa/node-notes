@@ -3,9 +3,22 @@ const chalk = require('chalk');
 let note = 'note';
 
 
+// list
+function listNotes() {
+    const notes = loadNotes();
+    if (notes.length > 0) {
+        console.log(chalk.magenta.inverse('NOTES'));
+        notes.forEach((note) => {
+            console.log(chalk.underline(note.title));
+        });
+    } else {
+        console.log(chalk.yellow.inverse('Empty'));
+    }
+}
+
 
 function getNotes() {
-    return 'Your notes...';
+    console.log('your notes...')
 }
 
 
@@ -60,13 +73,12 @@ const deleteNote = (title) => {
         saveNotes(notes);
     } else if (notes.length === notesToKeep.length) {
         return console.log(chalk.red.inverse('Nothing happened'));
-    } else if (notes.length === 0) {
-        console.log(chalk.yellow.inverse('Empty'));
     }
 }
 
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
+    listNotes: listNotes,
     deleteNote: deleteNote
 };
